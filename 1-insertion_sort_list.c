@@ -22,6 +22,7 @@ b = a->prev;
 while (b != NULL && a->n < b->n)
 {
 swapn(list, &b, a);
+print_list((const listint_t *)*list);
 }
 }
 }
@@ -32,7 +33,7 @@ swapn(list, &b, a);
  * @s: list
  * Return: void
  */
-void swapn(listint_t **h, listint_t *l, listint *s)
+void swapn(listint_t **h, listint_t **l, listint_t *s)
 {
 (*l)->next = s->next;
 if (s->next != NULL)
