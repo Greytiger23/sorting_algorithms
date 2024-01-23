@@ -11,7 +11,11 @@
  */
 void selection_sort(int *array, size_t size)
 {
-size_t a, b, c, min;
+size_t a, b, min;
+if (array == NULL || size < 2)
+{
+return;
+}
 for (a = 0; a < size - 1; a++)
 {
 min = a;
@@ -23,15 +27,7 @@ min = b;
 }
 }
 swap(&array[a], &array[min]);
-for (c = 0; c < size; c++)
-{
-printf("%d", array[c]);
-if (c < size - 1)
-{
-printf(", ");
-}
-}
-printf("\n");
+print_array(array, size);
 }
 }
 /**
