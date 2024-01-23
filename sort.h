@@ -21,7 +21,7 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void swap(int *x, int *y);
-void swapn(listint_t **h, listint_t *a, listint_t *b);
+void swapn(listint_t **h, listint_t **l, listint_t *s);
 int lomuto_p(int *array, int l, int h, size_t s);
 void recur(int *array, int l, int h, size_t s);
 #endif
