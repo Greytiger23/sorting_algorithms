@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "sort.h"
 
 /**
@@ -15,7 +16,7 @@ if (array == NULL || size < 2)
 {
 return;
 }
-recur(array, size, 0, size - 1);
+recur(array, size, 0);
 }
 /**
  * recur - function that recurs the list
@@ -25,14 +26,14 @@ recur(array, size, 0, size - 1);
  * @s: list
  * Return: void
  */
-void recur(int *array, int l, int h, size_t s)
+void recur(int *array, int l, int h)
 {
 int p;
 if (h - l > 0)
 {
-p = lomuto_p(array, l, h, s);
-recur(array, l, p - 1, s);
-recur(array, p + 1, h, s);
+p = lomuto_p(array, l, h);
+recur(array, l, p - 1);
+recur(array, p + 1, h);
 }
 }
 /**
@@ -43,27 +44,23 @@ recur(array, p + 1, h, s);
  * @s: list
  * Return: void
  */
-int lomuto_p(int *array, int l, int h, size_t s)
+int lomuto_p(int *array, int l, int h)
 {
 int *p, x, y;
 p = array + h;
-for (x = y = l; y < h; y++)
+x = l - 1;
+for (y = l; y < h - 1; y++)
 {
-if (array[y] < *p)
+if (array[y] <= *p)
 {
-if (x < y)
-{
-swap(array + y, array + x);
-print_array(array, s);
+x = x + 1;
+swap(&array[x], &array[y]);
+print_array(array, sizeof(array));
+}
 }
 x++;
-}
-}
-if (array[x] > *p)
-{
-swap(array + x, p);
-print_array(array, s);
-}
+swap(&array[x], &array[h]);
+print_array(array, sizeof(array));
 return (x);
 }
 /**

@@ -26,8 +26,11 @@ if (array[b] < array[min])
 min = b;
 }
 }
+if (min != a)
+{
 swap(&array[a], &array[min]);
 print_array(array, size);
+}
 }
 }
 /**
