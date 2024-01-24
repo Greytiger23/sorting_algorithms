@@ -16,7 +16,7 @@ if (array == NULL || size < 2)
 {
 return;
 }
-recur(array, size, 0, size - 1);
+recur(array, 0, size - 1, size);
 }
 /**
  * recur - function that recurs the list
@@ -29,13 +29,12 @@ recur(array, size, 0, size - 1);
 void recur(int *array, int l, int h, size_t s)
 {
 int p;
-if (array == NULL || l >= h || l < 0)
+if (h - l > 0)
 {
-return;
-}
 p = lomuto_p(array, l, h, s);
 recur(array, l, p - 1, s);
 recur(array, p + 1, h, s);
+}
 }
 /**
  * lomuto_p - function tha lomuto the list
@@ -49,23 +48,23 @@ int lomuto_p(int *array, int l, int h, size_t s)
 {
 int *p, x, y;
 p = array + h;
-x = l - 1;
-if (array == NULL || l >= h || l < 0)
+for (x = y = l; y < h; y++)
 {
-return (0);
-}
-for (y = l; y < h - 1; y++)
+if (array[y] < *p)
 {
-if (array[y] <= *p)
+if (x < y)
 {
-x = x + 1;
 swap(&array[x], &array[y]);
 print_array(array, s);
 }
-}
 x++;
-swap(&array[x], &array[h]);
+}
+}
+if (array[x] > *p)
+{
+swap(&array[x], p);
 print_array(array, s);
+}
 return (x);
 }
 /**
