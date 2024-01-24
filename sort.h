@@ -27,4 +27,6 @@ void swapn(listint_t **h, listint_t **l, listint_t *s);
 int lomuto_p(int *array, int l, int h, size_t s);
 void recur(int *array, int l, int h, size_t s);
 void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
+void sn(listint_t **list, listint_t *a, listint_t *b);
 #endif
