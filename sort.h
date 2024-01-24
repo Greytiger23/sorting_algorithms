@@ -26,4 +26,5 @@ void swap(int *x, int *y);
 void swapn(listint_t **h, listint_t **l, listint_t *s);
 int lomuto_p(int *array, int l, int h, size_t s);
 void recur(int *array, int l, int h, size_t s);
+void shell_sort(int *array, size_t size);
 #endif
