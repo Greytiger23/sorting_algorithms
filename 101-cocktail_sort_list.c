@@ -43,7 +43,7 @@ while (c->prev != a)
 if (c->n < c->prev->n)
 {
 sn(list, c->prev, c);
-print_list(*list);
+print_list((const listint_t *)*list);
 x = 1;
 }
 c = c->prev;
